@@ -1,6 +1,5 @@
 ﻿namespace TV_Shop
 {
-
     struct Agent
     {
         public string name;
@@ -110,12 +109,8 @@
                             Console.WriteLine($"{agent.name} Minősítés : Emelt");
 
                         }
-
+                        filtered_count++;
                     }
-
-
-
-
                     break;
             }
 
