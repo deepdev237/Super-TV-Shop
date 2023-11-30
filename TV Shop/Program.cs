@@ -77,7 +77,7 @@ namespace TV_Shop
                         }
                     }
                     break;
-                case 2:
+                case 2: //Közép
                     foreach (var agent in agents)
                     {
                         if (agent.call_num > 30000 & agent.call_num <= 40000)
@@ -86,7 +86,7 @@ namespace TV_Shop
                             filtered_count++;
                         }
                     } break;
-                case 3:
+                case 3: //Emelt
                     foreach (var agent in agents)
                     {
                         if (agent.call_num > 40000)
