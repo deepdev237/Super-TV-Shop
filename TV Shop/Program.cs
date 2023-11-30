@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TV_Shop
+﻿namespace TV_Shop
 {
+
     struct Agent
     {
         public string name;
@@ -31,7 +29,7 @@ namespace TV_Shop
             int agent_count;
             while (true)
             {
-                Console.Write("Mennyi agent: ");
+                Console.Write("Mennyi ügynököt szeretne látni? : ");
                 string i = Console.ReadLine();
                 bool res = int.TryParse(i, out agent_count);
                 if (res)
@@ -42,14 +40,14 @@ namespace TV_Shop
 
             for (int i = 0; i < agent_count; i++)
             {
-                Console.Write("Agent neve: ");
+                Console.Write("Ügynök neve: ");
                 string name = Console.ReadLine();
                 int number = Rnd();
 
                 agents.Add(new Agent(name, number));
             }
 
-            Console.WriteLine("1. Alap\n2. Közép\n3. Emelt\n");
+            Console.WriteLine("1. Alap\n2. Közép\n3. Emelt\n4. összes\n");
             Console.Write("Választás: ");
             int option;
 
@@ -62,7 +60,6 @@ namespace TV_Shop
                     break;
                 }
             }
-
             int filtered_count = 0;
 
             switch (option)
@@ -77,7 +74,7 @@ namespace TV_Shop
                         }
                     }
                     break;
-                case 2: //Közép
+                case 2:
                     foreach (var agent in agents)
                     {
                         if (agent.call_num > 30000 & agent.call_num <= 40000)
@@ -85,8 +82,9 @@ namespace TV_Shop
                             Console.WriteLine($"{agent.name}");
                             filtered_count++;
                         }
-                    } break;
-                case 3: //Emelt
+                    }
+                    break;
+                case 3:
                     foreach (var agent in agents)
                     {
                         if (agent.call_num > 40000)
@@ -95,6 +93,29 @@ namespace TV_Shop
                             filtered_count++;
                         }
                     }
+                    break;
+                case 4:
+                    foreach (var agent in agents)
+                    {
+                        if (agent.call_num <= 30000)
+                        {
+                            Console.WriteLine($"{agent.name} Minősítés : Alap");
+                        }
+                        else if (agent.call_num > 30000 & agent.call_num <= 40000)
+                        {
+                            Console.WriteLine($"{agent.name} Minősítés : Közép");
+                        }
+                        else if (agent.call_num > 40000)
+                        {
+                            Console.WriteLine($"{agent.name} Minősítés : Emelt");
+
+                        }
+
+                    }
+
+
+
+
                     break;
             }
 
